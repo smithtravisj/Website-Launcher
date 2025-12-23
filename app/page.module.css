@@ -74,23 +74,25 @@
   display: none;
 }
 
-.faviconWrapper {
-  margin-bottom: 12px;
+.titleWrapper {
   display: flex;
   align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .favicon {
   width: 32px;
   height: 32px;
   border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .projectTitle {
   font-size: 18px;
   font-weight: 600;
   color: var(--text);
-  margin: 0 0 8px 0;
+  margin: 0;
   line-height: 1.4;
 }
 

@@ -54,10 +54,10 @@ export default function Home() {
                   className={styles.projectCard}
                   onClick={() => mainLink && window.open(mainLink.url, '_blank')}
                 >
-                  <div className={styles.faviconWrapper}>
+                  <div className={styles.titleWrapper}>
                     <img src={project.favicon} alt={project.title} className={styles.favicon} />
+                    <h2 className={styles.projectTitle}>{project.title}</h2>
                   </div>
-                  <h2 className={styles.projectTitle}>{project.title}</h2>
                   <p className={styles.projectDescription}>{project.description}</p>
                   <div className={styles.mainLinkWrapper}>
                     <span className={styles.mainLink}>
