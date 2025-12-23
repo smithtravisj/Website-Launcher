@@ -30,7 +30,7 @@ const projects = [
     id: 3,
     title: 'College Survival Tool',
     description: 'A personal, privacy-first college dashboard for managing tasks, deadlines, courses, and more.',
-    favicon: 'https://collegesurvivaltool.com/favicon.svg',
+    favicon: '/cst-favicon.svg',
     links: [
       { label: 'Visit Site', url: 'https://collegesurvivaltool.com', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/College-Survival-Tool' },
