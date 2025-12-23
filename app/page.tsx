@@ -19,7 +19,7 @@ const projects = [
     id: 2,
     title: 'We Might Be Nomads',
     description: 'A platform for finding and sharing nomadic living experiences around the world.',
-    favicon: 'https://nomad-ventures-web-production.up.railway.app/favicon.ico',
+    favicon: 'https://nomad-ventures-web-production.up.railway.app/icon?d66ee101c6aa26d0',
     links: [
       { label: 'Visit Site', url: 'https://nomad-ventures-web-production.up.railway.app/', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/We-Might-Be-Nomads' },
