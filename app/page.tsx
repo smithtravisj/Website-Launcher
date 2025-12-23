@@ -51,14 +51,26 @@ export default function Home() {
               >
                 <h2 className={styles.projectTitle}>{project.title}</h2>
                 <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.mainLinkWrapper}>
+                  {project.links.find((link) => link.main) && (
+                    <a
+                      href={project.links.find((link) => link.main)!.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.mainLink}
+                    >
+                      {project.links.find((link) => link.main)!.label} →
+                    </a>
+                  )}
+                </div>
                 <div className={styles.footer}>
-                  {project.links.map((link, idx) => (
+                  {project.links.filter((link) => !link.main).map((link, idx) => (
                     <a
                       key={idx}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={link.main ? styles.mainLink : styles.link}
+                      className={styles.link}
                     >
                       {link.label} →
                     </a>
