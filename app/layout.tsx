@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
   icons: {
-    icon: '/favicon.svg',
+    icon: '/favicon.png',
     apple: '/apple-touch-icon.png',
   },
 };
@@ -32,6 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
+      <head>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body>
         {children}
       </body>
