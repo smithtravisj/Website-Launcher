@@ -30,7 +30,7 @@ const projects = [
     id: 3,
     title: 'Website Launcher',
     description: 'A clean hub to discover and access all my projects in one place.',
-    favicon: 'https://website-launcher.up.railway.app/favicon.svg',
+    favicon: '/favicon.svg',
     links: [
       { label: 'Visit Site', url: 'https://website-launcher.up.railway.app/', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/Website-Launcher' },
