@@ -39,7 +39,64 @@ const projects = [
   },
 ];
 
-const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || 'My Projects';
+const protonApps = [
+  {
+    id: 1,
+    title: 'Proton Mail',
+    description: 'Secure email with end-to-end encryption.',
+    favicon: '/proton-mail.ico',
+    links: [
+      { label: 'Visit', url: 'https://mail.proton.me', main: true },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Proton Calendar',
+    description: 'Encrypted calendar for your events.',
+    favicon: '/proton-calendar.ico',
+    links: [
+      { label: 'Visit', url: 'https://calendar.proton.me', main: true },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Proton Pass',
+    description: 'Secure password manager and identity protection.',
+    favicon: '/proton-pass.ico',
+    links: [
+      { label: 'Visit', url: 'https://pass.proton.me', main: true },
+    ],
+  },
+  {
+    id: 4,
+    title: 'Proton Drive',
+    description: 'Encrypted cloud storage for your files.',
+    favicon: '/proton-drive.ico',
+    links: [
+      { label: 'Visit', url: 'https://drive.proton.me', main: true },
+    ],
+  },
+  {
+    id: 5,
+    title: 'Proton VPN',
+    description: 'Secure VPN service for privacy and security.',
+    favicon: '/proton-vpn.ico',
+    links: [
+      { label: 'Visit', url: 'https://protonvpn.com', main: true },
+    ],
+  },
+  {
+    id: 6,
+    title: 'Proton Lumo',
+    description: 'AI-powered writing assistant.',
+    favicon: '/proton-lumo.ico',
+    links: [
+      { label: 'Visit', url: 'https://lumo.proton.me', main: true },
+    ],
+  },
+];
+
+const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || 'My Apps';
 const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'A collection of web applications I\'ve built';
 
 export default function Home() {
@@ -56,6 +113,7 @@ export default function Home() {
       {/* Main Content */}
       <main className={styles.main}>
         <div className={styles.mainContent}>
+          <h2 className={styles.appsHeading}>My Projects</h2>
           <div className={styles.grid}>
             {projects.map((project) => {
               const mainLink = project.links.find((link) => link.main);
@@ -77,6 +135,45 @@ export default function Home() {
                   </div>
                   <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
                     {project.links.filter((link) => !link.main).map((link, idx) => (
+                      <a
+                        key={idx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {link.label} →
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <h2 className={styles.appsHeading}>Proton Apps</h2>
+          <div className={styles.grid}>
+            {protonApps.map((app) => {
+              const mainLink = app.links.find((link) => link.main);
+              return (
+                <div
+                  key={app.id}
+                  className={styles.projectCard}
+                  onClick={() => mainLink && window.open(mainLink.url, '_blank')}
+                >
+                  <div className={styles.titleWrapper}>
+                    <img src={app.favicon} alt={app.title} className={styles.favicon} />
+                    <h2 className={styles.projectTitle}>{app.title}</h2>
+                  </div>
+                  <p className={styles.projectDescription}>{app.description}</p>
+                  <div className={styles.mainLinkWrapper}>
+                    <span className={styles.mainLink}>
+                      {mainLink?.label} →
+                    </span>
+                  </div>
+                  <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
+                    {app.links.filter((link) => !link.main).map((link, idx) => (
                       <a
                         key={idx}
                         href={link.url}
