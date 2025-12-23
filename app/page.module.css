@@ -50,7 +50,6 @@
 }
 
 .projectCard {
-  display: block;
   background: #1a1a1a;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
@@ -58,7 +57,6 @@
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
-  text-decoration: none;
   color: inherit;
   cursor: pointer;
   height: 100%;

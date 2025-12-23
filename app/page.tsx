@@ -47,12 +47,10 @@ export default function Home() {
             {projects.map((project) => {
               const mainLink = project.links.find((link) => link.main);
               return (
-                <a
+                <div
                   key={project.id}
-                  href={mainLink?.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={styles.projectCard}
+                  onClick={() => mainLink && window.open(mainLink.url, '_blank')}
                 >
                   <h2 className={styles.projectTitle}>{project.title}</h2>
                   <p className={styles.projectDescription}>{project.description}</p>
@@ -61,7 +59,7 @@ export default function Home() {
                       {mainLink?.label} →
                     </span>
                   </div>
-                  <div className={styles.footer} onClick={(e) => e.preventDefault()}>
+                  <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
                     {project.links.filter((link) => !link.main).map((link, idx) => (
                       <a
                         key={idx}
@@ -75,7 +73,7 @@ export default function Home() {
                       </a>
                     ))}
                   </div>
-                </a>
+                </div>
               );
             })}
           </div>
