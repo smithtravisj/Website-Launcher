@@ -6,13 +6,13 @@ import styles from './page.module.css';
 const projects = [
   {
     id: 1,
-    title: 'College Survival Tool',
-    description: 'A personal, privacy-first college dashboard for managing tasks, deadlines, courses, and more.',
-    favicon: 'https://collegesurvivaltool.com/favicon.svg',
+    title: 'Website Launcher',
+    description: 'A clean hub to discover and access all my projects in one place.',
+    favicon: '/favicon.svg',
     links: [
-      { label: 'Visit Site', url: 'https://collegesurvivaltool.com', main: true },
-      { label: 'GitHub', url: 'https://github.com/smithtravisj/College-Survival-Tool' },
-      { label: 'Railway', url: 'https://railway.com/project/80ee06d5-3310-4fe7-92a4-7d463d879ed8?environmentId=14f6127e-9353-4f22-b387-bb9f0b125874' },
+      { label: 'Visit Site', url: 'https://website-launcher.up.railway.app/', main: true },
+      { label: 'GitHub', url: 'https://github.com/smithtravisj/Website-Launcher' },
+      { label: 'Railway', url: 'https://railway.com/project/22fb30b6-e4c3-4460-b5a8-2391083ff22b?environmentId=2a3fd645-e6a4-413b-8f9d-b4cd015f8efd' },
     ],
   },
   {
@@ -28,13 +28,13 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Website Launcher',
-    description: 'A clean hub to discover and access all my projects in one place.',
-    favicon: '/favicon.svg',
+    title: 'College Survival Tool',
+    description: 'A personal, privacy-first college dashboard for managing tasks, deadlines, courses, and more.',
+    favicon: 'https://collegesurvivaltool.com/favicon.svg',
     links: [
-      { label: 'Visit Site', url: 'https://website-launcher.up.railway.app/', main: true },
-      { label: 'GitHub', url: 'https://github.com/smithtravisj/Website-Launcher' },
-      { label: 'Railway', url: 'https://railway.com/project/22fb30b6-e4c3-4460-b5a8-2391083ff22b?environmentId=2a3fd645-e6a4-413b-8f9d-b4cd015f8efd' },
+      { label: 'Visit Site', url: 'https://collegesurvivaltool.com', main: true },
+      { label: 'GitHub', url: 'https://github.com/smithtravisj/College-Survival-Tool' },
+      { label: 'Railway', url: 'https://railway.com/project/80ee06d5-3310-4fe7-92a4-7d463d879ed8?environmentId=14f6127e-9353-4f22-b387-bb9f0b125874' },
     ],
   },
 ];
