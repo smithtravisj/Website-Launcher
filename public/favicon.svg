@@ -6,30 +6,30 @@
     </linearGradient>
   </defs>
   <rect width="100" height="100" fill="url(#grad1)" rx="20"/>
+
   <g transform="translate(50, 50)">
-    <!-- Rocket body (red) -->
-    <rect x="-8" y="-20" width="16" height="30" rx="8" fill="#DC2626"/>
+    <!-- Rocket body -->
+    <path d="M 0,-18 C -4,-18 -6,-16 -6,-12 L -6,8 C -6,10 -4,12 0,12 C 4,12 6,10 6,8 L 6,-12 C 6,-16 4,-18 0,-18 Z" fill="#FF6B6B" stroke="none"/>
 
-    <!-- Rocket tip (orange/yellow gradient) -->
-    <polygon points="0,-20 -6,-10 6,-10" fill="#EA580C"/>
-    <polygon points="0,-10 -6,-2 6,-2" fill="#F59E0B"/>
+    <!-- Rocket nose cone -->
+    <path d="M -3,-12 L 0,-20 L 3,-12 Z" fill="#FFA500"/>
 
-    <!-- Rocket window -->
-    <circle cx="0" cy="-12" r="3" fill="#FCD34D"/>
+    <!-- Window -->
+    <circle cx="0" cy="-10" r="2.5" fill="#FFD700"/>
 
-    <!-- Left fin (red-orange) -->
-    <polygon points="-8,-5 -14,5 -8,8" fill="#DC2626"/>
+    <!-- Left fin -->
+    <path d="M -6,-4 L -10,4 L -6,6 Z" fill="#FF6B6B"/>
 
-    <!-- Right fin (red-orange) -->
-    <polygon points="8,-5 14,5 8,8" fill="#DC2626"/>
+    <!-- Right fin -->
+    <path d="M 6,-4 L 10,4 L 6,6 Z" fill="#FF6B6B"/>
 
-    <!-- Flame 1 (yellow) -->
-    <polygon points="-5,10 -2,18 0,14" fill="#FCD34D"/>
+    <!-- Flame 1 (left) -->
+    <path d="M -4,12 Q -6,16 -4,22 Q -3,18 -2,12 Z" fill="#FFD700"/>
 
-    <!-- Flame 2 (orange) -->
-    <polygon points="0,10 3,20 0,15" fill="#F59E0B"/>
+    <!-- Flame 2 (center) -->
+    <path d="M 0,12 Q -2,18 0,24 Q 2,18 0,12 Z" fill="#FF8C00"/>
 
-    <!-- Flame 3 (red) -->
-    <polygon points="5,10 2,18 0,14" fill="#DC2626"/>
+    <!-- Flame 3 (right) -->
+    <path d="M 4,12 Q 6,16 4,22 Q 3,18 2,12 Z" fill="#FFD700"/>
   </g>
 </svg>
