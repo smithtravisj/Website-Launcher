@@ -7,29 +7,33 @@
   </defs>
   <rect width="100" height="100" fill="url(#grad1)" rx="20"/>
 
-  <g transform="translate(50, 50) rotate(-45)">
-    <!-- Rocket body -->
-    <path d="M -8,-16 Q -12,-10 -12,0 Q -12,12 -4,18 Q 0,20 4,18 Q 12,12 12,0 Q 12,-10 8,-16 Z" fill="#1a1a1a" stroke="none"/>
+  <!-- Rocket angled at ~45 degrees -->
+  <g transform="translate(30, 65) rotate(-45)">
+    <!-- Main rocket body -->
+    <ellipse cx="0" cy="0" rx="10" ry="24" fill="black"/>
 
     <!-- Nose cone -->
-    <polygon points="0,-20 -6,-14 6,-14" fill="#1a1a1a"/>
+    <polygon points="0,-26 -8,-20 8,-20" fill="black"/>
 
     <!-- Window -->
-    <circle cx="0" cy="-6" r="4" fill="white"/>
+    <circle cx="0" cy="-8" r="5" fill="white"/>
 
     <!-- Left fin -->
-    <path d="M -12,-2 Q -16,-4 -14,6 Q -12,4 -11,0 Z" fill="#1a1a1a"/>
+    <path d="M -10,-8 Q -18,-10 -16,4 Q -12,-2 -10,-2 Z" fill="black"/>
 
     <!-- Right fin -->
-    <path d="M 12,-2 Q 16,-4 14,6 Q 12,4 11,0 Z" fill="#1a1a1a"/>
+    <path d="M 10,-8 Q 18,-10 16,4 Q 12,-2 10,-2 Z" fill="black"/>
+  </g>
 
-    <!-- Flame 1 (left) -->
-    <path d="M -6,18 Q -10,20 -8,28 Q -6,24 -5,19 Z" fill="#EF4444"/>
+  <!-- Red flames -->
+  <g transform="translate(20, 75)">
+    <!-- Left flame -->
+    <path d="M -5,0 Q -12,3 -10,14 Q -6,8 -3,2 Z" fill="#DC2626"/>
 
-    <!-- Flame 2 (center) -->
-    <path d="M 0,20 Q -3,24 0,32 Q 3,24 0,20 Z" fill="#DC2626"/>
+    <!-- Center flame -->
+    <path d="M 0,2 Q -4,8 0,18 Q 4,8 2,2 Z" fill="#EF4444"/>
 
-    <!-- Flame 3 (right) -->
-    <path d="M 6,18 Q 10,20 8,28 Q 6,24 5,19 Z" fill="#EF4444"/>
+    <!-- Right flame -->
+    <path d="M 5,0 Q 8,4 6,14 Q 4,8 3,2 Z" fill="#DC2626"/>
   </g>
 </svg>
