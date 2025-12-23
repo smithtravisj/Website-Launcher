@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: siteDescription,
   icons: {
     icon: '/favicon.svg',
-    apple: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
   },
 };
 
