@@ -13,7 +13,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || "Isaac's Projects";
+const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || "My Projects";
 const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'A launcher for my web projects';
 
 export const metadata: Metadata = {
