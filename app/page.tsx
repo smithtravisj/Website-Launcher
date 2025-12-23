@@ -28,7 +28,7 @@ export default function Home() {
     <div className={styles.container}>
       {/* Header */}
       <header className={styles.header}>
-        <div className="container">
+        <div className={styles.headerContent}>
           <h1 className={styles.title}>{siteTitle}</h1>
           <p className={styles.subtitle}>{siteDescription}</p>
         </div>
@@ -36,7 +36,7 @@ export default function Home() {
 
       {/* Main Content */}
       <main className={styles.main}>
-        <div className="container">
+        <div className={styles.mainContent}>
           <div className={styles.grid}>
             {projects.map((project) => (
               <a
@@ -44,15 +44,13 @@ export default function Home() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`card ${styles.projectCard}`}
+                className={styles.projectCard}
               >
-                <div className={styles.cardContent}>
-                  <div className={styles.colorBar} style={{ backgroundColor: project.color }} />
-                  <h2 className={styles.projectTitle}>{project.title}</h2>
-                  <p className={styles.projectDescription}>{project.description}</p>
-                  <div className={styles.footer}>
-                    <span className={styles.link}>Visit →</span>
-                  </div>
+                <div className={styles.colorBar} style={{ backgroundColor: project.color }} />
+                <h2 className={styles.projectTitle}>{project.title}</h2>
+                <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.footer}>
+                  <span className={styles.link}>Visit →</span>
                 </div>
               </a>
             ))}
