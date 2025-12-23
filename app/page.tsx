@@ -20,14 +20,17 @@ const projects = [
   },
 ];
 
+const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || 'My Projects';
+const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'A collection of web applications I\'ve built';
+
 export default function Home() {
   return (
     <div className={styles.container}>
       {/* Header */}
       <header className={styles.header}>
         <div className="container">
-          <h1 className={styles.title}>My Projects</h1>
-          <p className={styles.subtitle}>A collection of web applications I've built</p>
+          <h1 className={styles.title}>{siteTitle}</h1>
+          <p className={styles.subtitle}>{siteDescription}</p>
         </div>
       </header>
 

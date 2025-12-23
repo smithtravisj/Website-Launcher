@@ -13,9 +13,12 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || "Isaac's Projects";
+const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'A launcher for my web projects';
+
 export const metadata: Metadata = {
-  title: 'Isaac\'s Projects',
-  description: 'A launcher for my web projects',
+  title: siteTitle,
+  description: siteDescription,
   icons: {
     icon: '/favicon.svg',
     apple: '/favicon.svg',
