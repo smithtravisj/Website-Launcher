@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Backgrounds */
+  --bg: #0b0f14;
+  --panel: #101826;
+  --panel-2: #0f1724;
+
+  /* Text hierarchy */
+  --text: #e6edf6;
+  --text-secondary: #adbac7;
+  --muted: #9aa7b7;
+  --text-muted: #768390;
+  --text-disabled: #545d68;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: #444c56;
+  --border-active: #539bf5;
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  /* Accent */
+  --accent: #2563eb;
+  --accent-2: rgba(37, 99, 235, 0.15);
+  --ring: rgba(37, 99, 235, 0.35);
+
+  /* Semantic colors */
+  --success: #57ab5a;
+  --warning: #c69026;
+  --danger: #e5534b;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(83, 155, 245, 0.3);
+
+  /* Link color */
+  --link: #2563eb;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Spacing scale (8px base) */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 40px;
+
+  /* Border radius */
+  --radius-control: 12px;
+  --radius-card: 16px;
+
+  /* Layout */
+  --header-h: 56px;
+  --max-width: 1200px;
+  --gutter: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Utility classes */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --gutter: 16px;
+    --space-4: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
