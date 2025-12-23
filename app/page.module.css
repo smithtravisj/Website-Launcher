@@ -74,6 +74,18 @@
   display: none;
 }
 
+.faviconWrapper {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.favicon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
 .projectTitle {
   font-size: 18px;
   font-weight: 600;

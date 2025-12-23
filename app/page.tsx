@@ -8,6 +8,7 @@ const projects = [
     id: 1,
     title: 'College Survival Tool',
     description: 'A personal, privacy-first college dashboard for managing tasks, deadlines, courses, and more.',
+    favicon: 'https://www.google.com/s2/favicons?sz=64&domain=collegesurvivaltool.com',
     links: [
       { label: 'Visit Site', url: 'https://collegesurvivaltool.com', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/College-Survival-Tool' },
@@ -18,6 +19,7 @@ const projects = [
     id: 2,
     title: 'We Might Be Nomads',
     description: 'A platform for finding and sharing nomadic living experiences around the world.',
+    favicon: 'https://www.google.com/s2/favicons?sz=64&domain=nomad-ventures-web-production.up.railway.app',
     links: [
       { label: 'Visit Site', url: 'https://nomad-ventures-web-production.up.railway.app/', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/We-Might-Be-Nomads' },
@@ -52,6 +54,9 @@ export default function Home() {
                   className={styles.projectCard}
                   onClick={() => mainLink && window.open(mainLink.url, '_blank')}
                 >
+                  <div className={styles.faviconWrapper}>
+                    <img src={project.favicon} alt={project.title} className={styles.favicon} />
+                  </div>
                   <h2 className={styles.projectTitle}>{project.title}</h2>
                   <p className={styles.projectDescription}>{project.description}</p>
                   <div className={styles.mainLinkWrapper}>
