@@ -44,40 +44,40 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.grid}>
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className={styles.projectCard}
-              >
-                <h2 className={styles.projectTitle}>{project.title}</h2>
-                <p className={styles.projectDescription}>{project.description}</p>
-                <div className={styles.mainLinkWrapper}>
-                  {project.links.find((link) => link.main) && (
-                    <a
-                      href={project.links.find((link) => link.main)!.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.mainLink}
-                    >
-                      {project.links.find((link) => link.main)!.label} →
-                    </a>
-                  )}
-                </div>
-                <div className={styles.footer}>
-                  {project.links.filter((link) => !link.main).map((link, idx) => (
-                    <a
-                      key={idx}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.link}
-                    >
-                      {link.label} →
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
+            {projects.map((project) => {
+              const mainLink = project.links.find((link) => link.main);
+              return (
+                <a
+                  key={project.id}
+                  href={mainLink?.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.projectCard}
+                >
+                  <h2 className={styles.projectTitle}>{project.title}</h2>
+                  <p className={styles.projectDescription}>{project.description}</p>
+                  <div className={styles.mainLinkWrapper}>
+                    <span className={styles.mainLink}>
+                      {mainLink?.label} →
+                    </span>
+                  </div>
+                  <div className={styles.footer} onClick={(e) => e.preventDefault()}>
+                    {project.links.filter((link) => !link.main).map((link, idx) => (
+                      <a
+                        key={idx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {link.label} →
+                      </a>
+                    ))}
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </main>
