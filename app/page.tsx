@@ -26,6 +26,17 @@ const projects = [
       { label: 'Railway', url: 'https://railway.com/project/0646c113-43d1-4d6c-b97e-fa12755fb50f?environmentId=f32d74c3-7295-4225-bceb-58b7a863b377' },
     ],
   },
+  {
+    id: 3,
+    title: 'Website Launcher',
+    description: 'A clean hub to discover and access all my projects in one place.',
+    favicon: 'https://website-launcher.up.railway.app/favicon.svg',
+    links: [
+      { label: 'Visit Site', url: 'https://website-launcher.up.railway.app/', main: true },
+      { label: 'GitHub', url: 'https://github.com/smithtravisj/Website-Launcher' },
+      { label: 'Railway', url: 'https://railway.com/project/22fb30b6-e4c3-4460-b5a8-2391083ff22b?environmentId=2a3fd645-e6a4-413b-8f9d-b4cd015f8efd' },
+    ],
+  },
 ];
 
 const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || 'My Projects';
