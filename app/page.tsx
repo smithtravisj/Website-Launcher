@@ -8,15 +8,21 @@ const projects = [
     id: 1,
     title: 'College Survival Tool',
     description: 'A personal, privacy-first college dashboard for managing tasks, deadlines, courses, and more.',
-    url: 'https://college-survival-tool.com',
-    color: '#2563eb',
+    links: [
+      { label: 'Visit Site', url: 'https://collegesurvivaltool.com', main: true },
+      { label: 'GitHub', url: 'https://github.com/smithtravisj/College-Survival-Tool' },
+      { label: 'Railway', url: 'https://railway.com/project/80ee06d5-3310-4fe7-92a4-7d463d879ed8?environmentId=14f6127e-9353-4f22-b387-bb9f0b125874' },
+    ],
   },
   {
     id: 2,
     title: 'We Might Be Nomads',
     description: 'A platform for finding and sharing nomadic living experiences around the world.',
-    url: 'https://wemightbenomads.com',
-    color: '#7c3aed',
+    links: [
+      { label: 'Visit Site', url: 'https://nomad-ventures-web-production.up.railway.app/', main: true },
+      { label: 'GitHub', url: 'https://github.com/smithtravisj/We-Might-Be-Nomads' },
+      { label: 'Railway', url: 'https://railway.com/project/0646c113-43d1-4d6c-b97e-fa12755fb50f?environmentId=f32d74c3-7295-4225-bceb-58b7a863b377' },
+    ],
   },
 ];
 
@@ -39,20 +45,26 @@ export default function Home() {
         <div className={styles.mainContent}>
           <div className={styles.grid}>
             {projects.map((project) => (
-              <a
+              <div
                 key={project.id}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={styles.projectCard}
               >
-                <div className={styles.colorBar} style={{ backgroundColor: project.color }} />
                 <h2 className={styles.projectTitle}>{project.title}</h2>
                 <p className={styles.projectDescription}>{project.description}</p>
                 <div className={styles.footer}>
-                  <span className={styles.link}>Visit →</span>
+                  {project.links.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={link.main ? styles.mainLink : styles.link}
+                    >
+                      {link.label} →
+                    </a>
+                  ))}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
