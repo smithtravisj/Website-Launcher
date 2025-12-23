@@ -32,7 +32,7 @@
 
 .main {
   flex: 1;
-  padding: 48px var(--gutter);
+  padding: 24px var(--gutter);
   background-color: #000000;
 }
 
