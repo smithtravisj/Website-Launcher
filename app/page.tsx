@@ -365,7 +365,11 @@ export default function Home() {
                   onClick={() => mainLink && window.open(mainLink.url, '_blank')}
                 >
                   <div className={styles.titleWrapper}>
-                    <img src={service.favicon} alt={service.title} className={styles.protonFavicon} />
+                    <img
+                      src={service.favicon}
+                      alt={service.title}
+                      className={service.title === 'YouTube' ? styles.redFavicon : styles.protonFavicon}
+                    />
                     <h2 className={styles.projectTitle}>{service.title}</h2>
                   </div>
                   {service.links.filter((link) => !link.main).length > 0 && (
