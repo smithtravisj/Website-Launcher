@@ -205,6 +205,15 @@ const streamingServices = [
       { label: 'Visit', url: 'https://www.paramountplus.com', main: true },
     ],
   },
+  {
+    id: 8,
+    title: 'Max',
+    description: 'HBO series, movies, and Max originals.',
+    favicon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/max.svg',
+    links: [
+      { label: 'Visit', url: 'https://max.com', main: true },
+    ],
+  },
 ];
 
 const desktopTitle = 'Site Launcher';
