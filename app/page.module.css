@@ -80,11 +80,11 @@
   color: var(--text);
   margin: 0 0 12px 0;
   padding: 0;
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
   align-items: center;
   cursor: pointer;
   user-select: none;
+  gap: 8px;
 }
 
 .toggleIcon {
