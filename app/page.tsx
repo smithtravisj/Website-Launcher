@@ -373,7 +373,7 @@ export default function Home() {
                   className={styles.projectCard}
                   onClick={() => mainLink && window.open(mainLink.url, '_blank')}
                 >
-                  <div className={styles.titleWrapper}>
+                  <div className={service.title === 'HBO Max' ? `${styles.titleWrapper} ${styles.maxTitleWrapper}` : styles.titleWrapper}>
                     <img
                       src={service.favicon}
                       alt={service.title}

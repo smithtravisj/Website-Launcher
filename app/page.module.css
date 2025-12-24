@@ -113,8 +113,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 4px;
   margin-bottom: 12px;
+}
+
+.maxTitleWrapper {
+  margin-top: 4px;
 }
 
 .favicon {
