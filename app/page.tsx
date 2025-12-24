@@ -216,6 +216,54 @@ const streamingServices = [
   },
 ];
 
+const financialApps = [
+  {
+    id: 1,
+    title: 'SoFi',
+    description: 'Online personal finance and investing platform.',
+    favicon: 'https://www.sofi.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.sofi.com', main: true },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Capital One',
+    description: 'Banking and credit card services.',
+    favicon: 'https://www.capitalone.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.capitalone.com', main: true },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Chime',
+    description: 'Mobile banking and financial services.',
+    favicon: '/chime.png',
+    links: [
+      { label: 'Visit', url: 'https://www.chime.com', main: true },
+    ],
+  },
+  {
+    id: 4,
+    title: 'America First',
+    description: 'Credit union banking services.',
+    favicon: '/afcu.jpg',
+    links: [
+      { label: 'Visit', url: 'https://www.americafirst.com', main: true },
+    ],
+  },
+  {
+    id: 5,
+    title: 'Experian',
+    description: 'Credit monitoring and identity protection.',
+    favicon: 'https://www.experian.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.experian.com', main: true },
+    ],
+  },
+];
+
 const desktopTitle = 'Site Launcher';
 const mobileTitle = 'App Launcher';
 const desktopDescription = 'My projects and essential tools';
@@ -339,6 +387,45 @@ export default function Home() {
                       src={app.favicon}
                       alt={app.title}
                       className={app.title === 'Libby' ? styles.circularFavicon : styles.protonFavicon}
+                    />
+                    <h2 className={styles.projectTitle}>{app.title}</h2>
+                  </div>
+                  {app.links.filter((link) => !link.main).length > 0 && (
+                    <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
+                      {app.links.filter((link) => !link.main).map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.link}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {link.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Financial Apps</h2>
+          <div className={styles.grid}>
+            {financialApps.map((app) => {
+              const mainLink = app.links.find((link) => link.main);
+              return (
+                <div
+                  key={app.id}
+                  className={styles.projectCard}
+                  onClick={() => mainLink && window.open(mainLink.url, '_blank')}
+                >
+                  <div className={app.title === 'Chime' ? `${styles.titleWrapper} ${styles.chimeWrapper}` : styles.titleWrapper}>
+                    <img
+                      src={app.favicon}
+                      alt={app.title}
+                      className={app.title === 'Chime' ? styles.chimeFavicon : ['SoFi', 'America First', 'Experian'].includes(app.title) ? `${styles.protonFavicon} ${styles.roundedIcon}` : styles.protonFavicon}
                     />
                     <h2 className={styles.projectTitle}>{app.title}</h2>
                   </div>

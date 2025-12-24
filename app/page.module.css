@@ -83,11 +83,11 @@
 }
 
 .appsHeading:not(:first-of-type) {
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 .protonAppsHeading {
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .grid {
@@ -133,6 +133,12 @@
   margin-bottom: 8px;
 }
 
+.chimeWrapper {
+  margin-top: -2px;
+  margin-bottom: 6px;
+  gap: 4px;
+}
+
 .maxTitleWrapper {
   margin-top: 4px;
   padding-left: 4px;
@@ -159,11 +165,21 @@
   flex-shrink: 0;
 }
 
+.chimeFavicon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
 .circularFavicon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
   border-radius: 50%;
+}
+
+.roundedIcon {
+  border-radius: 4px;
 }
 
 .wideLogoFavicon {
@@ -292,6 +308,10 @@
   .titleWrapper {
     margin-bottom: 4px;
     gap: 6px;
+  }
+
+  .chimeWrapper {
+    margin-bottom: 0px;
   }
 
   .favicon {
