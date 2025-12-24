@@ -145,6 +145,7 @@
 }
 
 .wideLogoFavicon {
+  width: auto;
   height: 22px;
   flex-shrink: 0;
   object-fit: contain;
