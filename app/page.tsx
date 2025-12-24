@@ -163,7 +163,7 @@ export default function Home() {
                   onClick={() => mainLink && window.open(mainLink.url, '_blank')}
                 >
                   <div className={styles.titleWrapper}>
-                    <img src={app.favicon} alt={app.title} className={styles.favicon} />
+                    <img src={app.favicon} alt={app.title} className={styles.protonFavicon} />
                     <h2 className={styles.projectTitle}>{app.title}</h2>
                   </div>
                   <p className={styles.projectDescription}>{app.description}</p>
