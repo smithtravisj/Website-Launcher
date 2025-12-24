@@ -1,11 +1,22 @@
 import { getCollapsedSections, toggleSection, initializeDatabase } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 
-// Initialize database on first request
-await initializeDatabase();
+let dbInitialized = false;
+
+async function ensureDbInitialized() {
+  if (!dbInitialized) {
+    try {
+      await initializeDatabase();
+      dbInitialized = true;
+    } catch (error) {
+      console.error('Database initialization error:', error);
+    }
+  }
+}
 
 export async function GET() {
   try {
+    await ensureDbInitialized();
     const collapsedSections = await getCollapsedSections();
     return NextResponse.json({ collapsedSections });
   } catch (error) {
