@@ -253,7 +253,7 @@
 }
 
 .footer {
-  margin-top: 8px;
+  margin-top: auto;
   margin-bottom: 4px;
   padding-top: 0;
   display: flex;
