@@ -146,7 +146,7 @@ const streamingServices = [
     id: 1,
     title: 'YouTube',
     description: 'Video streaming platform.',
-    favicon: 'https://www.youtube.com/favicon.ico',
+    favicon: 'https://img.icons8.com/color/96/000000/youtube.png',
     links: [
       { label: 'Visit', url: 'https://www.youtube.com', main: true },
     ],
