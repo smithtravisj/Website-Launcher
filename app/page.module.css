@@ -144,6 +144,12 @@
   border-radius: 50%;
 }
 
+.wideLogoFavicon {
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
 .projectTitle {
   font-size: 18px;
   font-weight: 600;
