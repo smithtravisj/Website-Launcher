@@ -134,7 +134,7 @@ const toolsApps = [
     id: 4,
     title: 'Libby',
     description: 'Library app for ebooks and audiobooks.',
-    favicon: 'https://img.icons8.com/color/96/000000/library.png',
+    favicon: '/libbyyyyy.png',
     links: [
       { label: 'Visit', url: 'https://www.libby.com', main: true },
     ],
