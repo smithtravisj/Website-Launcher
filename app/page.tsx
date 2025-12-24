@@ -326,7 +326,11 @@ export default function Home() {
                   onClick={() => mainLink && window.open(mainLink.url, '_blank')}
                 >
                   <div className={styles.titleWrapper}>
-                    <img src={app.favicon} alt={app.title} className={styles.protonFavicon} />
+                    <img
+                      src={app.favicon}
+                      alt={app.title}
+                      className={app.title === 'Libby' ? styles.circularFavicon : styles.protonFavicon}
+                    />
                     <h2 className={styles.projectTitle}>{app.title}</h2>
                   </div>
                   {app.links.filter((link) => !link.main).length > 0 && (
