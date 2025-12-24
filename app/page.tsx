@@ -364,7 +364,7 @@ export default function Home() {
           </div>
 
           <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Streaming Services</h2>
-          <div className={styles.grid}>
+          <div className={`${styles.grid} ${styles.streamingGrid}`}>
             {streamingServices.map((service) => {
               const mainLink = service.links.find((link) => link.main);
               return (
