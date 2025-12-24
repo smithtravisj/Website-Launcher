@@ -134,7 +134,7 @@ const toolsApps = [
     id: 4,
     title: 'Libby',
     description: 'Library app for ebooks and audiobooks.',
-    favicon: 'https://libbydevices.com/favicon.ico',
+    favicon: 'https://www.libby.com/favicon.ico',
     links: [
       { label: 'Visit', url: 'https://www.libby.com', main: true },
     ],
@@ -155,7 +155,7 @@ const streamingServices = [
     id: 2,
     title: 'Crunchyroll',
     description: 'Anime and manga streaming.',
-    favicon: 'https://www.crunchyroll.com/favicon.ico',
+    favicon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/crunchyroll.svg',
     links: [
       { label: 'Visit', url: 'https://www.crunchyroll.com', main: true },
     ],
@@ -191,7 +191,7 @@ const streamingServices = [
     id: 6,
     title: 'Amazon Prime',
     description: 'Prime Video streaming service.',
-    favicon: 'https://www.primevideo.com/favicon.ico',
+    favicon: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/amazonprime.svg',
     links: [
       { label: 'Visit', url: 'https://www.primevideo.com', main: true },
     ],
