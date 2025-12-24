@@ -45,6 +45,7 @@ const protonApps = [
     title: 'Proton Mail',
     description: 'Secure email with end-to-end encryption.',
     favicon: '/proton-mail.ico',
+    appUrl: 'protonmail://',
     links: [
       { label: 'Visit', url: 'https://mail.proton.me', main: true },
     ],
@@ -54,6 +55,7 @@ const protonApps = [
     title: 'Proton Calendar',
     description: 'Encrypted calendar for your events.',
     favicon: '/proton-calendar.ico',
+    appUrl: 'proton-calendar://',
     links: [
       { label: 'Visit', url: 'https://calendar.proton.me', main: true },
     ],
@@ -63,6 +65,7 @@ const protonApps = [
     title: 'Proton Pass',
     description: 'Secure password manager and identity protection.',
     favicon: '/proton-pass.ico',
+    appUrl: 'proton-pass://',
     links: [
       { label: 'Visit', url: 'https://pass.proton.me', main: true },
     ],
@@ -72,6 +75,7 @@ const protonApps = [
     title: 'Proton Drive',
     description: 'Encrypted cloud storage for your files.',
     favicon: '/proton-drive.ico',
+    appUrl: 'proton-drive://',
     links: [
       { label: 'Visit', url: 'https://drive.proton.me', main: true },
     ],
@@ -81,6 +85,7 @@ const protonApps = [
     title: 'Proton VPN',
     description: 'Secure VPN service for privacy and security.',
     favicon: '/proton-vpn.ico',
+    appUrl: 'protonvpn://',
     links: [
       { label: 'Visit', url: 'https://protonvpn.com', main: true },
     ],
@@ -90,6 +95,7 @@ const protonApps = [
     title: 'Proton Lumo',
     description: 'AI-powered writing assistant.',
     favicon: '/proton-lumo.ico',
+    appUrl: 'proton-lumo://',
     links: [
       { label: 'Visit', url: 'https://lumo.proton.me', main: true },
     ],
@@ -156,11 +162,24 @@ export default function Home() {
           <div className={styles.grid}>
             {protonApps.map((app) => {
               const mainLink = app.links.find((link) => link.main);
+              const handleAppClick = () => {
+                if (!mainLink) return;
+                // Try to open native app first
+                if (app.appUrl) {
+                  window.location.href = app.appUrl;
+                  // Fall back to web version after 1 second if app doesn't open
+                  setTimeout(() => {
+                    window.open(mainLink.url, '_blank');
+                  }, 1000);
+                } else {
+                  window.open(mainLink.url, '_blank');
+                }
+              };
               return (
                 <div
                   key={app.id}
                   className={styles.projectCard}
-                  onClick={() => mainLink && window.open(mainLink.url, '_blank')}
+                  onClick={() => handleAppClick()}
                 >
                   <div className={styles.titleWrapper}>
                     <img src={app.favicon} alt={app.title} className={styles.protonFavicon} />
