@@ -13,15 +13,15 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || "My Projects";
+const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || "Site Launcher";
 const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'A launcher for my web projects';
 
 export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
   icons: {
-    icon: '/favicon.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/hellloooooo.png',
+    apple: '/hellloooooo.png',
   },
 };
 
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/hellloooooo.png" />
       </head>
       <body>
         {children}

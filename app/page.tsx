@@ -8,7 +8,7 @@ const projects = [
     id: 1,
     title: 'Website Launcher',
     description: 'A clean hub to discover and access all my projects in one place.',
-    favicon: '/favicon.png',
+    favicon: '/hellloooooo.png',
     links: [
       { label: 'Visit Site', url: 'https://website-launcher.up.railway.app/', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/Website-Launcher' },
@@ -19,7 +19,7 @@ const projects = [
     id: 2,
     title: 'We Might Be Nomads',
     description: 'A platform for finding and sharing nomadic living experiences around the world.',
-    favicon: 'https://nomad-ventures-web-production.up.railway.app/icon?d66ee101c6aa26d0',
+    favicon: '/IMG_8789.jpeg',
     links: [
       { label: 'Visit Site', url: 'https://nomad-ventures-web-production.up.railway.app/', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/We-Might-Be-Nomads' },
@@ -30,7 +30,7 @@ const projects = [
     id: 3,
     title: 'College Survival Tool',
     description: 'A personal, privacy-first college dashboard for managing tasks, deadlines, courses, and more.',
-    favicon: '/cst-favicon.svg',
+    favicon: '/Untitled design copy.png',
     links: [
       { label: 'Visit Site', url: 'https://collegesurvivaltool.com', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/College-Survival-Tool' },
@@ -102,8 +102,115 @@ const protonApps = [
   },
 ];
 
-const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || 'My Apps';
-const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'A collection of web applications I\'ve built';
+const toolsApps = [
+  {
+    id: 1,
+    title: 'Atlassian',
+    description: 'Project management and collaboration tools.',
+    favicon: 'https://www.atlassian.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.atlassian.com', main: true },
+    ],
+  },
+  {
+    id: 2,
+    title: 'ChatGPT',
+    description: 'AI-powered conversational assistant.',
+    favicon: 'https://chat.openai.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://chat.openai.com', main: true },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Claude',
+    description: 'AI assistant by Anthropic.',
+    favicon: 'https://claude.ai/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://claude.ai', main: true },
+    ],
+  },
+  {
+    id: 4,
+    title: 'Libby',
+    description: 'Library app for ebooks and audiobooks.',
+    favicon: 'https://libbydevices.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.libby.com', main: true },
+    ],
+  },
+];
+
+const streamingServices = [
+  {
+    id: 1,
+    title: 'YouTube',
+    description: 'Video streaming platform.',
+    favicon: 'https://www.youtube.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.youtube.com', main: true },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Crunchyroll',
+    description: 'Anime and manga streaming.',
+    favicon: 'https://www.crunchyroll.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.crunchyroll.com', main: true },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Netflix',
+    description: 'Movies and TV shows streaming.',
+    favicon: 'https://www.netflix.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.netflix.com', main: true },
+    ],
+  },
+  {
+    id: 4,
+    title: 'Disney Plus',
+    description: 'Disney entertainment streaming.',
+    favicon: 'https://www.disneyplus.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.disneyplus.com', main: true },
+    ],
+  },
+  {
+    id: 5,
+    title: 'Hulu',
+    description: 'TV shows and movies on demand.',
+    favicon: 'https://www.hulu.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.hulu.com', main: true },
+    ],
+  },
+  {
+    id: 6,
+    title: 'Amazon Prime',
+    description: 'Prime Video streaming service.',
+    favicon: 'https://www.primevideo.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.primevideo.com', main: true },
+    ],
+  },
+  {
+    id: 7,
+    title: 'Paramount Plus',
+    description: 'CBS and movie streaming service.',
+    favicon: 'https://www.paramountplus.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.paramountplus.com', main: true },
+    ],
+  },
+];
+
+const desktopTitle = 'Site Launcher';
+const mobileTitle = 'App Launcher';
+const desktopDescription = 'My projects and essential tools';
+const mobileDescription = 'Apps & tools';
 
 export default function Home() {
   return (
@@ -111,16 +218,23 @@ export default function Home() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.title}>{siteTitle}</h1>
-          <p className={styles.subtitle}>{siteDescription}</p>
+          <h1 className={styles.title}>
+            <span className={styles.desktopTitle}>{desktopTitle}</span>
+            <span className={styles.mobileTitle}>{mobileTitle}</span>
+          </h1>
+          <p className={styles.subtitle}>
+            <span className={styles.desktopDescription}>{desktopDescription}</span>
+            <span className={styles.mobileDescription}>{mobileDescription}</span>
+          </p>
         </div>
       </header>
 
       {/* Main Content */}
       <main className={styles.main}>
         <div className={styles.mainContent}>
-          <h2 className={styles.appsHeading}>My Projects</h2>
-          <div className={styles.grid}>
+          <div className={styles.desktopOnly}>
+            <h2 className={styles.appsHeading}>My Projects</h2>
+            <div className={styles.grid}>
             {projects.map((project) => {
               const mainLink = project.links.find((link) => link.main);
               return (
@@ -132,12 +246,6 @@ export default function Home() {
                   <div className={styles.titleWrapper}>
                     <img src={project.favicon} alt={project.title} className={styles.favicon} />
                     <h2 className={styles.projectTitle}>{project.title}</h2>
-                  </div>
-                  <p className={styles.projectDescription}>{project.description}</p>
-                  <div className={styles.mainLinkWrapper}>
-                    <span className={styles.mainLink}>
-                      {mainLink?.label} →
-                    </span>
                   </div>
                   <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
                     {project.links.filter((link) => !link.main).map((link, idx) => (
@@ -156,9 +264,10 @@ export default function Home() {
                 </div>
               );
             })}
+            </div>
           </div>
 
-          <h2 className={styles.appsHeading}>Proton Apps</h2>
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Proton Apps</h2>
           <div className={styles.grid}>
             {protonApps.map((app) => {
               const mainLink = app.links.find((link) => link.main);
@@ -185,15 +294,79 @@ export default function Home() {
                     <img src={app.favicon} alt={app.title} className={styles.protonFavicon} />
                     <h2 className={styles.projectTitle}>{app.title}</h2>
                   </div>
-                  <p className={styles.projectDescription}>{app.description}</p>
-                  <div className={styles.mainLinkWrapper}>
-                    <span className={styles.mainLink}>
-                      {mainLink?.label} →
-                    </span>
+                  {app.links.filter((link) => !link.main).length > 0 && (
+                    <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
+                      {app.links.filter((link) => !link.main).map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.link}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {link.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Tools & Apps</h2>
+          <div className={styles.grid}>
+            {toolsApps.map((app) => {
+              const mainLink = app.links.find((link) => link.main);
+              return (
+                <div
+                  key={app.id}
+                  className={styles.projectCard}
+                  onClick={() => mainLink && window.open(mainLink.url, '_blank')}
+                >
+                  <div className={styles.titleWrapper}>
+                    <img src={app.favicon} alt={app.title} className={styles.protonFavicon} />
+                    <h2 className={styles.projectTitle}>{app.title}</h2>
                   </div>
                   {app.links.filter((link) => !link.main).length > 0 && (
                     <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
                       {app.links.filter((link) => !link.main).map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.link}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {link.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Streaming Services</h2>
+          <div className={styles.grid}>
+            {streamingServices.map((service) => {
+              const mainLink = service.links.find((link) => link.main);
+              return (
+                <div
+                  key={service.id}
+                  className={styles.projectCard}
+                  onClick={() => mainLink && window.open(mainLink.url, '_blank')}
+                >
+                  <div className={styles.titleWrapper}>
+                    <img src={service.favicon} alt={service.title} className={styles.protonFavicon} />
+                    <h2 className={styles.projectTitle}>{service.title}</h2>
+                  </div>
+                  {service.links.filter((link) => !link.main).length > 0 && (
+                    <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
+                      {service.links.filter((link) => !link.main).map((link, idx) => (
                         <a
                           key={idx}
                           href={link.url}
