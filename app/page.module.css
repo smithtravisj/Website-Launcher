@@ -144,13 +144,6 @@
   border-radius: 50%;
 }
 
-.redFavicon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  filter: invert(0.23) sepia(1) saturate(4) hue-rotate(0deg) brightness(1.1);
-}
-
 .projectTitle {
   font-size: 18px;
   font-weight: 600;
