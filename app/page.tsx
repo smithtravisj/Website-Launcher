@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 
 const projects = [
@@ -270,6 +270,69 @@ const desktopDescription = 'My projects and essential tools';
 const mobileDescription = 'Apps & tools';
 
 export default function Home() {
+  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load collapsed sections from database on mount
+  useEffect(() => {
+    const loadCollapsedSections = async () => {
+      try {
+        const response = await fetch('/api/collapsed-sections');
+        if (response.ok) {
+          const data = await response.json();
+          setCollapsedSections(new Set(data.collapsedSections));
+        }
+      } catch (error) {
+        console.error('Failed to load collapsed sections:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadCollapsedSections();
+  }, []);
+
+  const toggleSection = async (sectionId: string) => {
+    try {
+      const isCurrentlyCollapsed = collapsedSections.has(sectionId);
+      const newCollapsedState = !isCurrentlyCollapsed;
+
+      // Update UI optimistically
+      setCollapsedSections(prev => {
+        const next = new Set(prev);
+        if (newCollapsedState) {
+          next.add(sectionId);
+        } else {
+          next.delete(sectionId);
+        }
+        return next;
+      });
+
+      // Save to database
+      const response = await fetch('/api/collapsed-sections', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sectionId, isCollapsed: newCollapsedState }),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to save collapsed section state');
+        // Revert on error
+        setCollapsedSections(prev => {
+          const next = new Set(prev);
+          if (isCurrentlyCollapsed) {
+            next.add(sectionId);
+          } else {
+            next.delete(sectionId);
+          }
+          return next;
+        });
+      }
+    } catch (error) {
+      console.error('Error toggling section:', error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -290,7 +353,11 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.desktopOnly}>
-            <h2 className={styles.appsHeading}>My Projects</h2>
+            <h2 className={styles.appsHeading} onClick={() => toggleSection('myProjects')}>
+              <span>My Projects</span>
+              <span className={`${styles.toggleIcon} ${collapsedSections.has('myProjects') ? styles.collapsed : ''}`}></span>
+            </h2>
+            {!collapsedSections.has('myProjects') && (
             <div className={styles.grid}>
             {projects.map((project) => {
               const mainLink = project.links.find((link) => link.main);
@@ -322,9 +389,14 @@ export default function Home() {
               );
             })}
             </div>
+            )}
           </div>
 
-          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Proton Apps</h2>
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`} onClick={() => toggleSection('protonApps')}>
+            <span>Proton Apps</span>
+            <span className={`${styles.toggleIcon} ${collapsedSections.has('protonApps') ? styles.collapsed : ''}`}></span>
+          </h2>
+          {!collapsedSections.has('protonApps') && (
           <div className={styles.grid}>
             {protonApps.map((app) => {
               const mainLink = app.links.find((link) => link.main);
@@ -371,8 +443,13 @@ export default function Home() {
               );
             })}
           </div>
+          )}
 
-          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Tools & Apps</h2>
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`} onClick={() => toggleSection('toolsApps')}>
+            <span>Tools & Apps</span>
+            <span className={`${styles.toggleIcon} ${collapsedSections.has('toolsApps') ? styles.collapsed : ''}`}></span>
+          </h2>
+          {!collapsedSections.has('toolsApps') && (
           <div className={styles.grid}>
             {toolsApps.map((app) => {
               const mainLink = app.links.find((link) => link.main);
@@ -410,8 +487,13 @@ export default function Home() {
               );
             })}
           </div>
+          )}
 
-          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Financial Apps</h2>
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`} onClick={() => toggleSection('financialApps')}>
+            <span>Financial Apps</span>
+            <span className={`${styles.toggleIcon} ${collapsedSections.has('financialApps') ? styles.collapsed : ''}`}></span>
+          </h2>
+          {!collapsedSections.has('financialApps') && (
           <div className={styles.grid}>
             {financialApps.map((app) => {
               const mainLink = app.links.find((link) => link.main);
@@ -449,8 +531,13 @@ export default function Home() {
               );
             })}
           </div>
+          )}
 
-          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`}>Streaming Services</h2>
+          <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`} onClick={() => toggleSection('streamingServices')}>
+            <span>Streaming Services</span>
+            <span className={`${styles.toggleIcon} ${collapsedSections.has('streamingServices') ? styles.collapsed : ''}`}></span>
+          </h2>
+          {!collapsedSections.has('streamingServices') && (
           <div className={`${styles.grid} ${styles.streamingGrid}`}>
             {streamingServices.map((service) => {
               const mainLink = service.links.find((link) => link.main);
@@ -488,6 +575,7 @@ export default function Home() {
               );
             })}
           </div>
+          )}
         </div>
       </main>
     </div>

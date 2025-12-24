@@ -80,6 +80,38 @@
   color: var(--text);
   margin: 0 0 12px 0;
   padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggleIcon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.toggleIcon::after {
+  content: '▼';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  font-size: 12px;
+  transition: transform var(--transition-fast);
+}
+
+.toggleIcon.collapsed::after {
+  transform: rotate(-90deg);
+}
+
+.appsHeading:hover .toggleIcon {
+  color: var(--text);
 }
 
 .appsHeading:not(:first-of-type) {
@@ -278,6 +310,11 @@
   .appsHeading {
     font-size: 16px;
     margin: 0 0 10px 0;
+  }
+
+  .toggleIcon::after {
+    font-size: 11px;
+    top: -1px;
   }
 
   .appsHeading:not(:first-of-type) {
