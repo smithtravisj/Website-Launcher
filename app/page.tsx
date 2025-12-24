@@ -207,9 +207,9 @@ const streamingServices = [
   },
   {
     id: 8,
-    title: 'Max',
+    title: 'HBO Max',
     description: 'HBO series, movies, and Max originals.',
-    favicon: 'https://www.google.com/s2/favicons?domain=max.com&sz=256',
+    favicon: 'https://www.max.com/assets/favicon/apple-touch-icon.png',
     links: [
       { label: 'Visit', url: 'https://max.com', main: true },
     ],
