@@ -146,7 +146,7 @@ const streamingServices = [
     id: 1,
     title: 'YouTube',
     description: 'Video streaming platform.',
-    favicon: 'https://raw.githubusercontent.com/gilbarbara/logos/main/logos/youtube.svg',
+    favicon: '/youtube_cropped.svg',
     links: [
       { label: 'Visit', url: 'https://www.youtube.com', main: true },
     ],
