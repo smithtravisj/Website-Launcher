@@ -172,20 +172,22 @@ export default function Home() {
                       {mainLink?.label} →
                     </span>
                   </div>
-                  <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
-                    {app.links.filter((link) => !link.main).map((link, idx) => (
-                      <a
-                        key={idx}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.link}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {link.label} →
-                      </a>
-                    ))}
-                  </div>
+                  {app.links.filter((link) => !link.main).length > 0 && (
+                    <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
+                      {app.links.filter((link) => !link.main).map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.link}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {link.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             })}
