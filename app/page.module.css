@@ -118,6 +118,7 @@
 
 .maxTitleWrapper {
   margin-top: 4px;
+  padding-left: 8px;
 }
 
 .favicon {
@@ -293,6 +294,14 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
+  }
+
+  .wideLogoFavicon {
+    height: 12px;
+  }
+
+  .maxTitleWrapper {
+    padding-left: 8px;
   }
 
   .desktopFavicon {
