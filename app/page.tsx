@@ -37,6 +37,17 @@ const projects = [
       { label: 'Railway', url: 'https://railway.com/project/80ee06d5-3310-4fe7-92a4-7d463d879ed8?environmentId=14f6127e-9353-4f22-b387-bb9f0b125874' },
     ],
   },
+  {
+    id: 4,
+    title: 'Money Reality',
+    description: 'A personal budget tracker - your financial truth mirror.',
+    favicon: '/money-reality-favicon.png',
+    links: [
+      { label: 'Visit Site', url: 'https://money-reality-production.up.railway.app/budget', main: true },
+      { label: 'GitHub', url: 'https://github.com/smithtravisj/Money-Reality' },
+      { label: 'Railway', url: 'https://railway.com/project/31c343ab-2e1d-4133-a38f-88a564f91eb6?' },
+    ],
+  },
 ];
 
 const protonApps = [
