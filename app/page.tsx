@@ -91,8 +91,11 @@ const protonApps = [
       { label: 'Visit', url: 'https://drive.proton.me', main: true },
     ],
   },
+];
+
+const protonAppsSecondary = [
   {
-    id: 5,
+    id: 1,
     title: 'Proton VPN',
     description: 'Secure VPN service for privacy and security.',
     favicon: '/proton-vpn.ico',
@@ -102,7 +105,17 @@ const protonApps = [
     ],
   },
   {
-    id: 6,
+    id: 2,
+    title: 'Proton Docs',
+    description: 'Secure collaborative document editing.',
+    favicon: '/proton-docs.ico',
+    appUrl: 'proton-docs://',
+    links: [
+      { label: 'Visit', url: 'https://docs.proton.me/u/0/recents', main: true },
+    ],
+  },
+  {
+    id: 3,
     title: 'Proton Lumo',
     description: 'AI-powered writing assistant.',
     favicon: '/proton-lumo.ico',
@@ -230,11 +243,11 @@ const streamingServices = [
 const financialApps = [
   {
     id: 1,
-    title: 'SoFi',
-    description: 'Online personal finance and investing platform.',
-    favicon: 'https://www.sofi.com/favicon.ico',
+    title: 'America First',
+    description: 'Credit union banking services.',
+    favicon: '/afcu.jpg',
     links: [
-      { label: 'Visit', url: 'https://www.sofi.com', main: true },
+      { label: 'Visit', url: 'https://www.americafirst.com', main: true },
     ],
   },
   {
@@ -257,20 +270,41 @@ const financialApps = [
   },
   {
     id: 4,
-    title: 'America First',
-    description: 'Credit union banking services.',
-    favicon: '/afcu.jpg',
+    title: 'SoFi',
+    description: 'Online personal finance and investing platform.',
+    favicon: 'https://www.sofi.com/favicon.ico',
     links: [
-      { label: 'Visit', url: 'https://www.americafirst.com', main: true },
+      { label: 'Visit', url: 'https://www.sofi.com', main: true },
+    ],
+  },
+];
+
+const financialAppsSecondary = [
+  {
+    id: 1,
+    title: 'Discover',
+    description: 'Credit cards and banking services.',
+    favicon: 'https://www.discover.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.discover.com', main: true },
     ],
   },
   {
-    id: 5,
+    id: 2,
     title: 'Experian',
     description: 'Credit monitoring and identity protection.',
     favicon: 'https://www.experian.com/favicon.ico',
     links: [
       { label: 'Visit', url: 'https://www.experian.com', main: true },
+    ],
+  },
+  {
+    id: 3,
+    title: 'US Bank',
+    description: 'Banking and financial services.',
+    favicon: 'https://www.usbank.com/favicon.ico',
+    links: [
+      { label: 'Visit', url: 'https://www.usbank.com', main: true },
     ],
   },
 ];
@@ -408,6 +442,7 @@ export default function Home() {
             <span className={`${styles.toggleIcon} ${collapsedSections.has('protonApps') ? styles.collapsed : ''}`}></span>
           </h2>
           {!collapsedSections.has('protonApps') && (
+          <>
           <div className={styles.grid}>
             {protonApps.map((app) => {
               const mainLink = app.links.find((link) => link.main);
@@ -454,6 +489,51 @@ export default function Home() {
               );
             })}
           </div>
+          <div className={styles.grid}>
+            {protonAppsSecondary.map((app) => {
+              const mainLink = app.links.find((link) => link.main);
+              const handleAppClick = () => {
+                if (!mainLink) return;
+                if (app.appUrl) {
+                  window.location.href = app.appUrl;
+                  setTimeout(() => {
+                    window.open(mainLink.url, '_blank');
+                  }, 1000);
+                } else {
+                  window.open(mainLink.url, '_blank');
+                }
+              };
+              return (
+                <div
+                  key={app.id}
+                  className={styles.projectCard}
+                  onClick={() => handleAppClick()}
+                >
+                  <div className={styles.titleWrapper}>
+                    <img src={app.favicon} alt={app.title} className={styles.protonFavicon} />
+                    <h2 className={styles.projectTitle}>{app.title}</h2>
+                  </div>
+                  {app.links.filter((link) => !link.main).length > 0 && (
+                    <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
+                      {app.links.filter((link) => !link.main).map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.link}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {link.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          </>
           )}
 
           <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`} onClick={() => toggleSection('toolsApps')}>
@@ -505,6 +585,7 @@ export default function Home() {
             <span className={`${styles.toggleIcon} ${collapsedSections.has('financialApps') ? styles.collapsed : ''}`}></span>
           </h2>
           {!collapsedSections.has('financialApps') && (
+          <>
           <div className={styles.grid}>
             {financialApps.map((app) => {
               const mainLink = app.links.find((link) => link.main);
@@ -518,7 +599,7 @@ export default function Home() {
                     <img
                       src={app.favicon}
                       alt={app.title}
-                      className={app.title === 'Chime' ? styles.chimeFavicon : ['SoFi', 'America First', 'Experian'].includes(app.title) ? `${styles.protonFavicon} ${styles.roundedIcon}` : styles.protonFavicon}
+                      className={app.title === 'Chime' ? styles.chimeFavicon : ['SoFi', 'America First'].includes(app.title) ? `${styles.protonFavicon} ${styles.roundedIcon}` : styles.protonFavicon}
                     />
                     <h2 className={styles.projectTitle}>{app.title}</h2>
                   </div>
@@ -542,6 +623,44 @@ export default function Home() {
               );
             })}
           </div>
+          <div className={styles.grid}>
+            {financialAppsSecondary.map((app) => {
+              const mainLink = app.links.find((link) => link.main);
+              return (
+                <div
+                  key={app.id}
+                  className={styles.projectCard}
+                  onClick={() => mainLink && window.open(mainLink.url, '_blank')}
+                >
+                  <div className={styles.titleWrapper}>
+                    <img
+                      src={app.favicon}
+                      alt={app.title}
+                      className={['Discover', 'Experian', 'US Bank'].includes(app.title) ? `${styles.protonFavicon} ${styles.roundedIcon}` : styles.protonFavicon}
+                    />
+                    <h2 className={styles.projectTitle}>{app.title}</h2>
+                  </div>
+                  {app.links.filter((link) => !link.main).length > 0 && (
+                    <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
+                      {app.links.filter((link) => !link.main).map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.link}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {link.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          </>
           )}
 
           <h2 className={`${styles.appsHeading} ${styles.protonAppsHeading}`} onClick={() => toggleSection('streamingServices')}>

@@ -131,6 +131,10 @@
   margin-top: 0;
 }
 
+.grid + .grid {
+  margin-top: 24px;
+}
+
 .streamingGrid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
