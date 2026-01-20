@@ -28,11 +28,11 @@ const projects = [
   },
   {
     id: 3,
-    title: 'College Survival Tool',
+    title: 'College Orbit',
     description: 'A personal, privacy-first college dashboard for managing tasks, deadlines, courses, and more.',
-    favicon: '/Untitled design copy.png',
+    favicon: '/apple-touch-icon copy.png',
     links: [
-      { label: 'Visit Site', url: 'https://collegesurvivaltool.com', main: true },
+      { label: 'Visit Site', url: 'https://collegeorbit.app', main: true },
       { label: 'GitHub', url: 'https://github.com/smithtravisj/College-Survival-Tool' },
       { label: 'Railway', url: 'https://railway.com/project/80ee06d5-3310-4fe7-92a4-7d463d879ed8?environmentId=14f6127e-9353-4f22-b387-bb9f0b125874' },
     ],
