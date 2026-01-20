@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
+import { currentVersion } from '@/lib/releases';
 
 const projects = [
   {
@@ -708,6 +709,17 @@ export default function Home() {
           )}
         </div>
       </main>
+
+      {/* Release Notes Footer */}
+      <footer className={styles.releaseNotes}>
+        <span className={styles.version}>v{currentVersion}</span>
+        <a
+          href="/release-notes"
+          className={styles.releaseNotesLink}
+        >
+          Release Notes →
+        </a>
+      </footer>
     </div>
   );
 }

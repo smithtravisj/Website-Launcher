@@ -444,3 +444,29 @@
     opacity: 0.7;
   }
 }
+
+.releaseNotes {
+  padding: 24px var(--gutter);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.version {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.releaseNotesLink {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.releaseNotesLink:hover {
+  color: var(--text);
+}
